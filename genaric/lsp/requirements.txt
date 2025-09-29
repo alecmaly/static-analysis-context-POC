@@ -1,0 +1,6 @@
+beautifulsoup4==4.13.4
+colorama==0.4.6
+colored==2.2.4
+debugpy==1.8.5
+soupsieve==2.7
+typing_extensions==4.13.2

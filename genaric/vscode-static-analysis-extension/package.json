@@ -1,0 +1,122 @@
+{
+	"name": "static-analysis-helper",
+	"description": "Static Analysis Helper",
+	"version": "0.0.1",
+	"private": true,
+	"publisher": "AlecMaly",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xxx"
+	},
+	"engines": {
+		"vscode": "^1.102.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./out/extension.js",
+	"activationEvents": [
+		"onStartupFinished",
+		"onLanguage:*"
+	],
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Static Analysis Extension Configuration",
+			"properties": {
+				"static-analysis.enableUnsafeEval": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable or disable unsave eval."
+				},
+				"static-analysis.enableTextHighlights": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable or disable text highlights."
+				}
+			}
+		},
+		"viewsContainers": {
+			"panel": [
+				{
+					"id": "static-analysis",
+					"title": "Static Analysis",
+					"icon": "resources/static-analysis.svg"
+				}
+			]
+		},
+		"views": {
+			"static-analysis": [
+				{
+					"type": "webview",
+					"id": "static-analysis-view",
+					"name": "View",
+					"visibility": "visible"
+				}
+			]
+		},
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "staticAnalysis.scanFileOrFolderFunctionNames",
+					"group": "staticAnalysis@1"
+				},
+				{
+					"command": "staticAnalysis.scanFileOrFolderFullPriority",
+					"group": "staticAnalysis@2"
+				},
+				{
+					"command": "staticAnalysis.scanFileOrFolderFull",
+					"group": "staticAnalysis@3"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "staticAnalysis.toggleTextHighlights",
+				"key": "ctrl+d",
+				"mac": "cmd+d",
+				"title": "Static Analysis: Toggle Text Highlighting"
+			}
+		],
+		"commands": [
+			{
+				"command": "staticAnalysis.load",
+				"title": "Load static analysis data for webview",
+				"category": "Static Analysis Functions"
+			},
+			{
+				"command": "staticAnalysis.toggleTextHighlights",
+				"title": "Static Analysis: Toggle Text Highlighting"
+			},
+			{
+				"command": "staticAnalysis.scanFileOrFolderFunctionNames",
+				"title": "Static Analysis: Scan File or Folder (Func Names)"
+			},
+			{
+				"command": "staticAnalysis.scanFileOrFolderFull",
+				"title": "Static Analysis: Scan File or Folder (Full)"
+			},
+			{
+				"command": "staticAnalysis.scanFileOrFolderFullPriority",
+				"title": "Static Analysis: Scan File or Folder (Full) - Priority"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint \"src/**/*.ts\"",
+		"watch": "tsc -w -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^24.0.0",
+		"@types/vscode": "^1.102.0",
+		"@types/vscode-webview": "^1.57.5",
+		"@typescript-eslint/eslint-plugin": "^8.34.0",
+		"@typescript-eslint/parser": "^8.34.0",
+		"eslint": "^9.28.0",
+		"typescript": "^5.8.3"
+	}
+}

@@ -1,0 +1,263 @@
+.sticky-header {
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	background-color: var(--vscode-editor-background);
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.sticky-header-secondary {
+	z-index: 100;
+}
+
+textarea, input[type="text"] {
+	color: var(--vscode-editor-foreground);
+	background-color: var(--vscode-editor-background);
+	min-width: 12em;
+}
+
+#function-update-decorator {
+	width: 35em;
+}
+
+
+
+.callstack > a {
+	text-decoration: none;
+}
+
+
+.spacer {
+	width: 1em;
+	display: inline-block;
+}
+
+.container {
+	/* We first create a flex layout context */
+	display: flex;
+
+	/* Then we define the flow direction 
+		and if we allow the items to wrap 
+	* Remember this is the same as:
+	* flex-direction: row;
+	* flex-wrap: wrap;
+	*/
+	flex-flow: row nowrap;
+
+	/* Then we define how is distributed the remaining space */
+	justify-content: space-between;
+}
+/* If you only want to target the function-summary and scope-summary divs, then set their widths */
+#function-summary, #scope-detail {
+    overflow: scroll;
+	height: 93vh;   /* may need to be tweaked not to cut off last lines */
+}
+
+#function-summary {
+	flex-grow: 0;
+	flex-shrink: 0;
+	max-height: calc(98vh - 3em);
+}
+
+#scope-detail {
+	flex-grow: 1;
+	flex-shrink: 1;
+	max-height: calc(98vh - 3em);
+}
+
+#resizable-handle {
+	width: 20px;
+	padding: 0;
+	cursor: ew-resize;
+	flex: 0 0 auto;
+}
+
+#resizable-handle::before {
+	content: '';
+	display: block;
+	width: 4px;
+	height: 100%;
+	background: red;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+/* cytoscape / dagre styles */
+/* #cy { width: 100%; height: 80vh; position: absolute; top: 10%; left: 0; } */
+#cy-entrypoint-container, #cy-exit-container, #cy-other-container, #cy-callstacks-container, #cy-scope-container  {
+	z-index: 999;
+	top: 45px; /* buffer top headers */
+}
+
+#cy, #cy2, #cy-entrypoint, #cy-exit, #cy-other, #cy-callstacks, #cy-scope {
+    /* position: absolute; */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+	min-height: 20vh;
+	max-height: 95vh;
+}
+
+.graph-title {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.text {
+	text-align: center;
+}
+
+
+/*
+h1 {
+    opacity: 0.5;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+*/
+
+.cy-title__p1, .cy-title__p2 {
+	color: #000;
+    position: relative;
+    z-index: 10;
+}
+
+
+/* 
+.cy-title {
+    text-align: center;
+    font-size: 13px;
+    width: 130px;
+}
+
+.cy-title__name {
+    color: #000;
+    font-size: 0.85em;
+    line-height: 1em;
+    margin-bottom: 0.4em;
+    text-transform: capitalize;
+}
+
+.cy-title__info {
+    color: #9c9c9c;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.cy-title__main {
+    color: #2b2b2b;
+    font-size: 1.1em;
+    background: rgba(253, 255, 128, 0.63);
+    text-transform: capitalize;
+    margin-bottom: 0.4em;
+}
+
+.cy-title__none {
+    color: rgba(78, 78, 78, 0.9);
+    font-size: 1.1em;
+    text-transform: capitalize;
+    font-style: italic;
+    margin-top: 0.4em;
+    text-decoration: line-through;
+}
+
+
+/* menu buttons */
+.menu-btn {
+    position: relative;
+    z-index: 100;
+	margin-right: 2px;
+}
+
+.custom-hyperlinks * > a {
+	position: relative;
+	/* display: inline-block; */
+	z-index: 100;
+	color: blue;
+
+}
+
+
+/* highlightjs Overrides
+overwrite padding to prevent graph nodes from shifting Title to make <a> clickable.... went back to working without override??? */
+/* 
+pre code.hljs {
+	/* padding: 0 !important; */
+	/* padding: .5em !important; /* trying half way between default 1em, as disabling completely only works for some code bases??.. 
+}
+*/
+
+.cy-title__p1 {
+	max-height: 50vh;
+}
+
+pre {
+	max-height: 45vh;
+}
+
+
+/* Prism Overrides */
+code[class*=language-], pre[class*=language-] {
+	line-height: 1.05 !important;
+	font-family: inherit !important;
+}
+
+pre[class*=language-] {
+	padding: 0 !important;
+}
+
+
+
+
+
+
+/** Graph arrows **/
+
+.arrows-container {
+    display: flex;
+    align-items: center;
+	justify-content: center;
+}
+
+.arrows {
+	font-size: 1.5em;
+    line-height: 1;
+    text-align: center;
+    margin-right: 5px; /* Adjust as needed for spacing */
+}
+/* 
+.text {
+    line-height: normal;
+} */
+
+
+
+#select-search-template, #select-search-template-scope {
+	width: 3em; /* Default small size */
+	transition: width 0.5s ease; /* Smooth transition for width */
+}
+
+
+code {
+	color: inherit;
+	background-color: inherit;
+}
+
+.icon {
+	cursor: pointer;
+}

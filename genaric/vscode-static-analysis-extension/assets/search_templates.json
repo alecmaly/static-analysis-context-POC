@@ -1,0 +1,56 @@
+[
+    {
+        "name": "reset / clear",
+        "include": "",
+        "exclude": "",
+        "highlight": ""
+    },
+    {
+        "name": "highlight entry nodes",
+        "include": "<no_change>",
+        "exclude": "<no_change>",
+        "highlight": "<entry>"
+    },
+    {
+        "name": "highlight exit nodes",
+        "include": "<no_change>",
+        "exclude": "<no_change>",
+        "highlight": "<exit>"
+    },
+    {
+        "name": "highlight require(..msg.sender..)",
+        "include": "<no_change>",
+        "exclude": "<no_change>",
+        "highlight": "require\\([^)]*msg\\.sender[^)]*\\)"
+    },
+    {
+        "name": "highlight external state changing functions",
+        "include": "<no_change>",
+        "exclude": "<no_change>",
+        "highlight": "(?=.*💥)(?!.*(🟩))"
+    },
+    {
+        "name": "external state changing functions (no inheritors)",
+        "include": "(?=💥).*>out 0",
+        "exclude": "(slither|🟩|constructor)",
+        "highlight": ""
+    },
+    {
+        "name": "external state changing functions",
+        "include": "(?=💥)",
+        "exclude": "(slither|🟩|constructor)",
+        "highlight": ">out 0"
+    },
+    {
+        "name": "internal state changing functions",
+        "include": "",
+        "exclude": "(💥|slither|🟩|constructor)",
+        "highlight": ">out 0"
+    },
+    {
+        "name": "Scope: (in scope, no interfaces)",
+        "include": "(?=🎯)",
+        "exclude": "(interface|/I)",
+        "highlight": ">out 0"
+    }
+]

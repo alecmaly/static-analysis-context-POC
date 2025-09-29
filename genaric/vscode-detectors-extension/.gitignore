@@ -1,0 +1,5 @@
+out
+node_modules
+.vscode-test/
+README.1.md
+package-lock.json

@@ -1,0 +1,5 @@
+{
+    "slither.filterPaths": "98813cb6ffba|lib/|test/|98813cb6ffba",
+    "slither.solcPath": "",
+    "slither.hiddenDetectors": []
+}
